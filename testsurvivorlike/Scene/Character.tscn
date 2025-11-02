@@ -502,28 +502,26 @@ animations = [{
 radius = 5.0
 height = 22.0
 
-[node name="Character" type="Node2D"]
-scale = Vector2(3, 3)
-
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(14, 16)
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lcuhw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7k42")
-animation = &"walk_back"
+animation = &"walk_right"
 autoplay = "idle_front"
-frame_progress = 0.966589
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_oolk3")
 
-[node name="StateMachine" type="Node" parent="Player"]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_atbvg")
 
-[node name="Walk" type="Node" parent="Player/StateMachine"]
+[node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_cxxw8")
 
-[node name="Idle" type="Node" parent="Player/StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_cxxw8")
+
+[node name="Character" type="Node2D" parent="."]
+scale = Vector2(3, 3)
